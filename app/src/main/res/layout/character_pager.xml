@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_16dp">
+
+        <!-- ===== Header ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textColor="@color/gold_light"
+                    android:textSize="@dimen/_26sp"
+                    android:textStyle="bold"
+                    tools:text="Lyonel Soutmight" />
+
+                <TextView
+                    android:id="@+id/tvSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_muted"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    tools:text="Human Bard (College of Lore) • Lvl 20" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivFavorite"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/btn_star_big_off" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:background="@color/gold" />
+
+        <!-- ===== HP banner ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@drawable/bg_tile_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_14dp">
+
+            <ImageView
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/heart_real"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:letterSpacing="0.1"
+                android:text="HIT POINTS"
+                android:textColor="@color/text_muted"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="bold"
+                />
+
+
+            <TextView
+                android:id="@+id/tvHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textColor="@color/gold_light"
+                android:textSize="@dimen/_24sp"
+                android:textStyle="bold"
+                tools:text="114 / 114"
+                android:layout_marginEnd="@dimen/_22dp"
+                />
+        </LinearLayout>
+
+        <!-- ===== Combat row: AC / INIT / PROF / SPEED ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/StatTile">
+                <ImageView
+                    android:layout_width="@dimen/_20dp"
+                    android:layout_height="@dimen/_20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shield_real"/>
+                <TextView android:id="@+id/tvAc" style="@style/StatValue" tools:text="18" />
+                <TextView style="@style/StatLabel" android:text="@string/armor_class" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/StatTile">
+                <ImageView
+                    android:layout_width="@dimen/_20dp"
+                    android:layout_height="@dimen/_20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bolt_real"/>
+                <TextView android:id="@+id/tvInitiative" style="@style/StatValue" tools:text="+5" />
+                <TextView style="@style/StatLabel" android:text="@string/initiative" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/StatTile">
+                <ImageView
+                    android:layout_width="@dimen/_20dp"
+                    android:layout_height="@dimen/_20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/book_real"/>
+                <TextView android:id="@+id/tvProficiency" style="@style/StatValue" tools:text="+6" />
+                <TextView style="@style/StatLabel" android:text="@string/proficiency_bonus" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/StatTile">
+                <ImageView
+                    android:layout_width="@dimen/_20dp"
+                    android:layout_height="@dimen/_20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/boot_real"/>
+                <TextView android:id="@+id/tvSpeed" style="@style/StatValue" tools:text="30" />
+                <TextView style="@style/StatLabel" android:text="@string/speed" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ===== Ability Scores ===== -->
+        <TextView style="@style/SectionHeader" android:text="@string/ability_scores" />
+        <View style="@style/SectionDivider" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3">
+
+            <LinearLayout style="@style/AbilityTile">
+                <TextView style="@style/AbilityLabel" android:text="@string/str" />
+                <TextView android:id="@+id/tvStr" style="@style/AbilityValue" tools:text="11 (+0)" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/AbilityTile">
+                <TextView style="@style/AbilityLabel" android:text="@string/dex" />
+                <TextView android:id="@+id/tvDex" style="@style/AbilityValue" tools:text="15 (+2)" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/AbilityTile">
+                <TextView style="@style/AbilityLabel" android:text="@string/con" />
+                <TextView android:id="@+id/tvCon" style="@style/AbilityValue" tools:text="13 (+1)" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/AbilityTile">
+                <TextView style="@style/AbilityLabel" android:text="@string/intl" />
+                <TextView android:id="@+id/tvInt" style="@style/AbilityValue" tools:text="14 (+2)" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/AbilityTile">
+                <TextView style="@style/AbilityLabel" android:text="@string/wis" />
+                <TextView android:id="@+id/tvWis" style="@style/AbilityValue" tools:text="9 (-1)" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/AbilityTile">
+                <TextView style="@style/AbilityLabel" android:text="@string/cha" />
+                <TextView android:id="@+id/tvCha" style="@style/AbilityValue" tools:text="18 (+4)" />
+            </LinearLayout>
+        </GridLayout>
+
+        <!-- ===== Saving Throws ===== -->
+        <TextView style="@style/SectionHeader" android:text="@string/saving_throws" />
+        <View style="@style/SectionDivider" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <LinearLayout style="@style/SaveTile">
+                <TextView style="@style/SaveLabel" android:text="@string/str" />
+                <TextView android:id="@+id/tvStrSave" style="@style/SaveValue" tools:text="+0" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/SaveTile">
+                <TextView style="@style/SaveLabel" android:text="@string/dex" />
+                <TextView android:id="@+id/tvDexSave" style="@style/SaveValue" tools:text="+8" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/SaveTile">
+                <TextView style="@style/SaveLabel" android:text="@string/con" />
+                <TextView android:id="@+id/tvConSave" style="@style/SaveValue" tools:text="+1" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/SaveTile">
+                <TextView style="@style/SaveLabel" android:text="@string/intl" />
+                <TextView android:id="@+id/tvIntSave" style="@style/SaveValue" tools:text="+2" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/SaveTile">
+                <TextView style="@style/SaveLabel" android:text="@string/wis" />
+                <TextView android:id="@+id/tvWisSave" style="@style/SaveValue" tools:text="-1" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/SaveTile">
+                <TextView style="@style/SaveLabel" android:text="@string/cha" />
+                <TextView android:id="@+id/tvChaSave" style="@style/SaveValue" tools:text="+10" />
+            </LinearLayout>
+        </GridLayout>
+
+        <!-- ===== Notes ===== -->
+        <TextView style="@style/SectionHeader" android:text="@string/notes" />
+        <View style="@style/SectionDivider" />
+
+        <TextView
+            android:id="@+id/tvNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_tile_dark"
+            android:fontFamily="serif"
+            android:minHeight="@dimen/_60dp"
+            android:padding="@dimen/_12dp"
+            android:textColor="@color/parchment"
+            tools:text="…" />
+
+    </LinearLayout>
+
+
+
+</ScrollView>
+

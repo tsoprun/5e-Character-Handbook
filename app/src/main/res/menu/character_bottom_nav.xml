@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuActions" android:icon="@drawable/ic_menu" android:title="@string/actions"/>
+    <item android:id="@+id/menuSpells" android:icon="@drawable/ic_menu" android:title="@string/spells"/>
+    <item android:id="@+id/menuSheet" android:icon="@drawable/ic_menu" android:title="@string/character_sheet"/>
+    <item android:id="@+id/menuSkills" android:icon="@drawable/ic_menu" android:title="@string/skills"/>
+    <item android:id="@+id/menuConditions" android:icon="@drawable/ic_menu" android:title="@string/conditions"/>
+</menu>
