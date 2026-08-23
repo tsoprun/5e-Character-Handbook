@@ -25,6 +25,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".CharacterCreateActivity"
+            android:exported="false"/>
+
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:noHistory="true"
@@ -35,6 +39,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
 
         <provider
             android:name=".DndProvider"

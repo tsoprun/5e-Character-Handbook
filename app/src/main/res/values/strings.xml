@@ -26,5 +26,46 @@
     <string name="conditions">Conditions</string>
 
 
+    <string name="new_character">New Character</string>
+    <string name="edit_character">Edit Character</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="name_required">Name is required</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_race">Race</string>
+    <string name="hint_class">Class</string>
+    <string name="hint_subclass">Subclass</string>
+    <string name="hint_level">Level</string>
+    <string name="hint_max_hp">Max HP</string>
+    <string name="hint_current_hp">Current HP</string>
+    <string name="hint_speed">Speed</string>
+
+    <string name="hint_armor_class">Notes</string>
+    <string name="hint_strength">Notes</string>
+    <string name="hint_dexterity">Notes</string>
+    <string name="hint_constitution">Notes</string>
+    <string name="hint_intelligence">Notes</string>
+    <string name="hint_wisdom">Notes</string>
+    <string name="hint_charisma">Notes</string>
+
+    <string name="home">Home</string>
+    <string name="bestiary">Bestiary</string>
+    <string name="items">Items</string>
+    <string name="coming_soon">Coming soon</string>
+
+
+    <string name="race">Race</string>
+    <string name="char_class">Class</string>
+    <string name="char_subclass">Subclass</string>
+    <string name="abilities">Abilities</string>
+
+
+
+
+
+
+
 
 </resources>

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardBackgroundColor="?colorPrimary"
-    app:cardCornerRadius="@dimen/_12dp"
-    app:cardUseCompatPadding="true">
+    style="@style/EntryCard">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,23 +12,14 @@
 
         <TextView
             android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/_20sp"
-            android:textStyle="bold"
+            style="@style/EntryTitle"
             tools:text="Aragorn"/>
-
 
         <TextView
             android:id="@+id/tvMeta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4dp"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/_14sp"
+            style="@style/EntrySubtitle"
             tools:text="Human • Ranger • Lvl 5"/>
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

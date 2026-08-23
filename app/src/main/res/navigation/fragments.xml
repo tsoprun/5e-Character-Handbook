@@ -3,8 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragments"
-    app:startDestination="@id/menuCharacters">
+    app:startDestination="@id/menuHome">
 
+
+
+    <fragment
+        android:id="@+id/menuHome"
+        android:name="hr.algebra.dnd5e.fragment.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home"
+        />
 
     <fragment
         android:id="@+id/menuCharacters"
@@ -17,6 +25,8 @@
         android:name="hr.algebra.dnd5e.fragment.AboutFragment"
         android:label="@string/about"
         tools:layout="@layout/fragment_about"/>
+
+
 
 
 </navigation>

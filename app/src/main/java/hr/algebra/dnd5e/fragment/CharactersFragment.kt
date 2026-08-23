@@ -11,8 +11,11 @@ import hr.algebra.dnd5e.databinding.FragmentCharactersBinding
 import hr.algebra.dnd5e.framework.fetchCharacters
 import hr.algebra.dnd5e.model.Character
 import android.content.ContentValues
+import hr.algebra.dnd5e.CharacterCreateActivity
 import hr.algebra.dnd5e.DND_PROVIDER_CONTENT_URI
 import hr.algebra.dnd5e.framework.toContentValues
+import hr.algebra.dnd5e.framework.startActivity
+
 
 
 class CharactersFragment : Fragment() {
@@ -51,10 +54,20 @@ class CharactersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rvCharacters.apply {
-            adapter = CharacterAdapter(requireContext(), characters)
-            layoutManager = LinearLayoutManager(requireContext())
-        }
+        binding.rvCharacters.layoutManager = LinearLayoutManager(requireContext())
+        binding.fabAdd.setOnClickListener {
+            requireContext().startActivity<CharacterCreateActivity>()
+            }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        characters = requireContext().fetchCharacters()
+        binding.rvCharacters.adapter = CharacterAdapter(requireContext(), characters)
     }
 
 }
+
+
+
+

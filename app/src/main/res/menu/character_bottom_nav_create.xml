@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuRace" android:icon="@drawable/ic_menu" android:title="@string/race"/>
+    <item android:id="@+id/menuClass" android:icon="@drawable/ic_menu" android:title="@string/char_class"/>
+    <item android:id="@+id/menuSubclass" android:icon="@drawable/ic_menu" android:title="@string/char_subclass"/>
+    <item android:id="@+id/menuAbilities" android:icon="@drawable/ic_menu" android:title="@string/abilities"/>
+    <item android:id="@+id/menuSkillStep" android:icon="@drawable/ic_menu" android:title="@string/skills"/>
+</menu>

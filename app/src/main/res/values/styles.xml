@@ -120,4 +120,40 @@
         <item name="android:color">@dimen/_32dp</item>
         <item name="android:color">@color/blood</item>
     </style>
+
+
+    <!-- Reusable dizajn kartica (Characters / Bestiary / Items / wizard liste) -->
+    <style name="EntryCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardBackgroundColor">@color/surface_dark</item>
+        <item name="cardCornerRadius">@dimen/_12dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="strokeColor">@color/bronze_dim</item>
+        <item name="strokeWidth">@dimen/_1dp</item>
+    </style>
+
+    <style name="EntryTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/gold_light</item>
+        <item name="android:textSize">@dimen/_20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EntrySubtitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_4dp</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">@dimen/_14sp</item>
+    </style>
+
+
+
+
+
+
 </resources>

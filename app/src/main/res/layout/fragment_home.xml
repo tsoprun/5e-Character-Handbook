@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/EntryCard"
+    android:background="@color/bg_dark"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/_16dp"
+    >
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardCharacters"
+        style="@style/EntryCard"
+        android:layout_width="@dimen/_240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_180dp"
+        android:clickable="true"
+        android:focusable="true">
+
+
+        <TextView
+           style="@style/EntryTitle"
+            android:layout_gravity="center"
+            android:padding="@dimen/_20dp"
+            android:text="@string/characters"
+            android:textAlignment="center">
+        </TextView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBestiary"
+        style="@style/EntryCard"
+        android:layout_width="@dimen/_240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_12dp"
+        android:clickable="true"
+        android:focusable="true">
+
+
+        <TextView
+            style="@style/EntryTitle"
+            android:layout_gravity="center"
+            android:padding="@dimen/_20dp"
+            android:text="@string/bestiary"
+            android:textAlignment="center">
+        </TextView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardItems"
+        style="@style/EntryCard"
+        android:layout_width="@dimen/_240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_12dp"
+        android:clickable="true"
+        android:focusable="true">
+
+
+        <TextView
+            style="@style/EntryTitle"
+            android:layout_gravity="center"
+            android:padding="@dimen/_20dp"
+            android:text="@string/items"
+            android:textAlignment="center">
+        </TextView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
