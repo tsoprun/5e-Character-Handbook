@@ -18,9 +18,10 @@ class CharacterCreateActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCharacterCreateBinding
 
-    private var position = 0
+    var selectedRace: String?=null
+    var selectedClass: String?=null
 
-    var selectedRace: String? = null
+    private var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +51,6 @@ class CharacterCreateActivity : AppCompatActivity() {
 
     private fun initPager() {
         binding.viewPager2.adapter = CharacterCreateAdapter(this, position)
-    }
-
-    fun goToStep (index: Int){
-        binding.viewPager2.currentItem=index
     }
 
     override fun onSupportNavigateUp(): Boolean {

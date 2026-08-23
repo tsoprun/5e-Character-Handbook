@@ -11,12 +11,13 @@ import hr.algebra.dnd5e.CharacterCreateActivity
 import hr.algebra.dnd5e.adapter.ReferenceAdapter
 import hr.algebra.dnd5e.api.ApiReference
 import hr.algebra.dnd5e.api.Dnd5eFetcher
+import hr.algebra.dnd5e.databinding.FragmentClassBinding
 import hr.algebra.dnd5e.databinding.FragmentRaceBinding
 
 
-class RaceFragment : Fragment() {
+class ClassFragment : Fragment() {
 
-    private lateinit var binding: FragmentRaceBinding
+    private lateinit var binding: FragmentClassBinding
     private lateinit var adapter: ReferenceAdapter
 
 
@@ -24,7 +25,7 @@ class RaceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRaceBinding.inflate(inflater, container, false)
+        binding = FragmentClassBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,14 +33,14 @@ class RaceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvReferences.layoutManager = LinearLayoutManager(requireContext())
 
-        Dnd5eFetcher().fetchRaces { races ->
-            adapter = ReferenceAdapter(requireContext(), races) { race ->
+        Dnd5eFetcher().fetchClasses { classes ->
+            adapter = ReferenceAdapter(requireContext(), classes) { charClass ->
                 val activity = requireActivity() as CharacterCreateActivity
-                activity.selectedRace = race.name
-                adapter.selectedName = race.name
+                activity.selectedClass = charClass.name
+                adapter.selectedName = charClass.name
                 adapter.notifyDataSetChanged()
             }
-            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedRace
+            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedClass
             binding.rvReferences.adapter = adapter
         }
 
@@ -48,7 +49,7 @@ class RaceFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (::adapter.isInitialized) {
-            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedRace
+            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedClass
             adapter.notifyDataSetChanged()
         }
     }
