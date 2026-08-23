@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="@dimen/_12dp"
+    android:paddingVertical="@dimen/_14dp">
+
+    <ImageView
+        android:id="@+id/ivAbilityIcon"
+        android:layout_width="@dimen/_32dp"
+        android:layout_height="@dimen/_32dp"
+        android:layout_marginEnd="@dimen/_12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/heart_real" />
+
+    <TextView
+        android:id="@+id/tvAbilityName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="serif"
+        android:textColor="@color/gold_light"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        tools:text="Strength"/>
+
+    <TextView
+        android:id="@+id/tvModifier"
+        android:layout_width="@dimen/_44dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:fontFamily="serif"
+        android:textColor="@color/gold"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        tools:text="+3"/>
+
+    <TextView
+        android:id="@+id/tvValue"
+        android:layout_width="@dimen/_44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12dp"
+        android:gravity="center"
+        android:fontFamily="serif"
+        android:textColor="@color/gold_light"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        tools:text="16"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMinus"
+        style="@style/ButtonCircularSmall"
+        android:layout_marginStart="@dimen/_10dp"
+        android:text="-"
+    />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPlus"
+        style="@style/ButtonCircularSmall"
+        android:layout_marginStart="@dimen/_10dp"
+        android:text="+"
+        />
+
+    </LinearLayout>
+

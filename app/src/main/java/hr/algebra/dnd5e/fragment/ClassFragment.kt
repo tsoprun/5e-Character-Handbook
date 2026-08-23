@@ -36,7 +36,11 @@ class ClassFragment : Fragment() {
         Dnd5eFetcher().fetchClasses { classes ->
             adapter = ReferenceAdapter(requireContext(), classes) { charClass ->
                 val activity = requireActivity() as CharacterCreateActivity
+                if (activity.selectedClass != charClass.name){
+                    activity.selectedSubclass = null
+                }
                 activity.selectedClass = charClass.name
+                activity.selectedClassIndex = charClass.index
                 adapter.selectedName = charClass.name
                 adapter.notifyDataSetChanged()
             }

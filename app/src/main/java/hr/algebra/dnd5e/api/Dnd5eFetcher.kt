@@ -28,6 +28,10 @@ class Dnd5eFetcher {
     fun fetchClasses(onResult: (List<ApiReference>) -> Unit) =
         enqueue(api.fetchClasses(), onResult)
 
+    fun fetchSubclasses(classIndex: String, onResult: (List<ApiReference>) -> Unit) =
+        enqueue(api.fetchSubclasses(classIndex), onResult)
+
+
     private fun enqueue(
         call: Call<ReferenceList>,
         onResult: (List<ApiReference>)->Unit

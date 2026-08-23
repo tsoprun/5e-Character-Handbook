@@ -12,6 +12,8 @@ import hr.algebra.dnd5e.adapter.CharacterPagerAdapter
 import hr.algebra.dnd5e.databinding.ActivityCharacterCreateBinding
 import hr.algebra.dnd5e.databinding.ActivityCharacterPagerBinding
 import hr.algebra.dnd5e.framework.fetchCharacters
+import hr.algebra.dnd5e.model.Ability
+import hr.algebra.dnd5e.model.AbilityScore
 
 
 class CharacterCreateActivity : AppCompatActivity() {
@@ -20,6 +22,11 @@ class CharacterCreateActivity : AppCompatActivity() {
 
     var selectedRace: String?=null
     var selectedClass: String?=null
+
+    var selectedClassIndex: String?=null
+    var selectedSubclass: String?=null
+
+    val abilityScores = Ability.values().map { AbilityScore(it, 8) }.toMutableList()
 
     private var position = 0
 
