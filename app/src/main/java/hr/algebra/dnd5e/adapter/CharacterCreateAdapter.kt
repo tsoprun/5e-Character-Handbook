@@ -7,6 +7,7 @@ import hr.algebra.dnd5e.fragment.AbilityScoresFragment
 import hr.algebra.dnd5e.fragment.ClassFragment
 import hr.algebra.dnd5e.fragment.RaceFragment
 import hr.algebra.dnd5e.fragment.SectionPlaceholderFragment
+import hr.algebra.dnd5e.fragment.SkillsFragment
 import hr.algebra.dnd5e.fragment.SubclassFragment
 
 class CharacterCreateAdapter(activity: FragmentActivity, private val position: Int): FragmentStateAdapter(activity) {
@@ -18,6 +19,6 @@ class CharacterCreateAdapter(activity: FragmentActivity, private val position: I
         1 -> ClassFragment()
         2 -> SubclassFragment()
         3 -> AbilityScoresFragment()
-        else -> SectionPlaceholderFragment.newInstance("Skills")
+        else -> SkillsFragment()
     }
 }

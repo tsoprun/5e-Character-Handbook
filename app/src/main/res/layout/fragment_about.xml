@@ -8,14 +8,14 @@
     tools:context=".fragment.AboutFragment">
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_wizard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <TextView
         android:gravity="top|center"
-        android:textSize="@dimen/_50sp"
+        android:textSize="@dimen/_25sp"
         android:text="@string/about_description"
         android:layout_width="wrap_content"
         android:layout_height="0dp"

@@ -27,6 +27,7 @@ class CharacterCreateActivity : AppCompatActivity() {
     var selectedSubclass: String?=null
 
     val abilityScores = Ability.values().map { AbilityScore(it, 8) }.toMutableList()
+    val selectedSkills = mutableSetOf<String>()
 
     private var position = 0
 

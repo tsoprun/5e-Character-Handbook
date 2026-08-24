@@ -19,12 +19,13 @@ interface Dnd5eApi {
     @GET("classes/{index}/subclasses")
     fun fetchSubclasses(@Path("index") index: String): Call<ReferenceList>
 
-
     @GET ("races/{index}")
     fun fetchRaceDetail(@Path("index") index: String): Call<RaceDetail>
 
-
     @GET ("classes/{index}")
     fun fetchClassDetail(@Path("index") index: String): Call<ClassDetail>
+
+    @GET ("skills/{index}")
+    fun fetchSkillDetail(@Path("index") index: String): Call<SkillDetail>
 
 }

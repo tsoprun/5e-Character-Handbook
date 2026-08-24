@@ -14,6 +14,7 @@ import hr.algebra.dnd5e.framework.callDelayed
 import hr.algebra.dnd5e.framework.getBooleanPreference
 import hr.algebra.dnd5e.framework.isOnline
 import hr.algebra.dnd5e.framework.startActivity
+import com.bumptech.glide.Glide
 
 private const val DELAY = 3000L
 const val DATA_IMPORTED = "hr.algebra.dnd5e.data_imported"
@@ -26,6 +27,10 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Glide.with(this)
+            .asGif()
+            .load(R.raw.wizard)
+            .into(binding.ivSplash)
         startAnimations()
         redirect()
 
@@ -33,7 +38,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private fun startAnimations() {
 
         binding.tvSplash.applyAnimation(R.anim.blink)
-        binding.ivSplash.applyAnimation(R.anim.rotate)
+        //binding.ivSplash.applyAnimation(R.anim.rotate)
 
     }
     private fun redirect() {

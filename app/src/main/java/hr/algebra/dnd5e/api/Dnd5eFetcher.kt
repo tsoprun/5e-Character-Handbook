@@ -92,7 +92,8 @@ class Dnd5eFetcher (private val context: Context){
     private fun fetchSkills(): List<SkillRef> {
         val refs = api.fetchSkills().execute().body()?.results ?: return emptyList()
         return refs.mapNotNull{ref ->
-            SkillRef(null, ref.index, ref.name, SKILL_ABILITIES[ref.index] ?: "")
+            val detail = api.fetchSkillDetail(ref.index).execute().body() ?: return@mapNotNull null
+            SkillRef(null, ref.index, ref.name, detail.ability_score.index)
         }
     }
 
@@ -148,27 +149,5 @@ class Dnd5eFetcher (private val context: Context){
 
 
 
-    companion object {
-            private val SKILL_ABILITIES = mapOf(
-                "acrobatics" to "dex",
-                "animal-handling" to "wis",
-                "arcana" to "int",
-                "athletics" to "str",
-                "deception" to "cha",
-                "history" to "int",
-                "insight" to "wis",
-                "intimidation" to "cha",
-                "investigation" to "int",
-                "medicine" to "wis",
-                "nature" to "int",
-                "perception" to "wis",
-                "performance" to "cha",
-                "persuasion" to "cha",
-                "religion" to "int",
-                "sleight-of-hand" to "dex",
-                "stealth" to "dex",
-                "survival" to "wis"
-            )
-        }
 
 }

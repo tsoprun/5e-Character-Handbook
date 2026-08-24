@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">DnD5e Companion</string>
+    <string name="loading_quote">Preparing spells for the day… precisely as long as I mean to.</string>
     <string name="about">About Application</string>
-    <string name="about_description">D&amp;D 5e Companion\n\n Created by Tin</string>
+    <string name="about_description">5e Tabletop application \n Created by Tin</string>
     <string name="characters">Characters</string>
     <string name="exit">Exit</string>
     <string name="do_you_really_want_to_exit_an_app">Do you really want to exit an app?</string>

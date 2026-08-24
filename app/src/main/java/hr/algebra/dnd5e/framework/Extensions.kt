@@ -135,8 +135,8 @@ fun Context.fetchSubclasses(classIndex: String): List<ApiReference>{
 }
 
 @SuppressLint("Range")
-fun Context.fetchSkills(): List<ApiReference>{
-    val skills = mutableListOf<ApiReference>()
+fun Context.fetchSkills(): List<SkillRef>{
+    val skills = mutableListOf<SkillRef>()
     contentResolver.query(
         SKILLS_CONTENT_URI,
         null,
@@ -146,10 +146,11 @@ fun Context.fetchSkills(): List<ApiReference>{
     ).use { cursor ->
         while (cursor?.moveToNext() == true) {
             skills.add(
-                ApiReference(
-                    cursor.getString(cursor.getColumnIndex((SkillRef::apiIndex.name))),
+                SkillRef(
+                    cursor.getLong(cursor.getColumnIndex(SkillRef::_id.name)),
+                    cursor.getString(cursor.getColumnIndex(SkillRef::apiIndex.name)),
                     cursor.getString(cursor.getColumnIndex(SkillRef::name.name)),
-                    ""
+                    cursor.getString(cursor.getColumnIndex(SkillRef::ability.name))
                 )
             )
         }
