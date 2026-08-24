@@ -14,6 +14,7 @@ import hr.algebra.dnd5e.api.Dnd5eFetcher
 import hr.algebra.dnd5e.databinding.FragmentClassBinding
 import hr.algebra.dnd5e.databinding.FragmentRaceBinding
 import hr.algebra.dnd5e.databinding.FragmentSubclassBinding
+import hr.algebra.dnd5e.framework.fetchSubclasses
 
 
 class SubclassFragment : Fragment() {
@@ -37,18 +38,18 @@ class SubclassFragment : Fragment() {
     }
 
     override fun onResume() {
-       super.onResume()
+        super.onResume()
         val activity = requireActivity() as CharacterCreateActivity
         val classIndex = activity.selectedClassIndex ?: return // nema klase > nema podklase
 
-        Dnd5eFetcher().fetchSubclasses(classIndex) { subclasses ->
-            adapter = ReferenceAdapter(requireContext(), subclasses) { subclass ->
-                activity.selectedSubclass = subclass.name
-                adapter.selectedName = subclass.name
-                adapter.notifyDataSetChanged()
-            }
-            adapter.selectedName = activity.selectedSubclass
-            binding.rvReferences.adapter = adapter
+        val subclasses = requireContext().fetchSubclasses(classIndex)
+        adapter = ReferenceAdapter(requireContext(), subclasses) { subclass ->
+            activity.selectedSubclass = subclass.name
+            adapter.selectedName = subclass.name
+            adapter.notifyDataSetChanged()
         }
+        adapter.selectedName = activity.selectedSubclass
+        binding.rvReferences.adapter = adapter
     }
 }
+

@@ -49,6 +49,11 @@
             android:enabled="true"
             android:exported="false" />
 
+        <receiver
+            android:name=".Dnd5eReceiver"
+            android:enabled="true"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

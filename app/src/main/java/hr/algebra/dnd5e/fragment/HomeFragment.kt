@@ -35,15 +35,6 @@ class HomeFragment : Fragment(){
         }
         binding.cardBestiary.setOnClickListener { comingSoon() }
         binding.cardItems.setOnClickListener { comingSoon() }
-
-        hr.algebra.dnd5e.api.Dnd5eFetcher().fetchRaces { races ->
-            android.util.Log.d("DND", "races=${races.size} ${races.map { it.name }}")
-        }
-
-        hr.algebra.dnd5e.api.Dnd5eFetcher().fetchClasses { classes ->
-            android.util.Log.d("DND", "classes=${classes.size} ${classes.map { it.name }}")
-        }
-
     }
 
     private fun comingSoon() {

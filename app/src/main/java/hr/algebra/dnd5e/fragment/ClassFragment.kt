@@ -13,6 +13,7 @@ import hr.algebra.dnd5e.api.ApiReference
 import hr.algebra.dnd5e.api.Dnd5eFetcher
 import hr.algebra.dnd5e.databinding.FragmentClassBinding
 import hr.algebra.dnd5e.databinding.FragmentRaceBinding
+import hr.algebra.dnd5e.framework.fetchClasses
 
 
 class ClassFragment : Fragment() {
@@ -33,7 +34,7 @@ class ClassFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvReferences.layoutManager = LinearLayoutManager(requireContext())
 
-        Dnd5eFetcher().fetchClasses { classes ->
+            val classes = requireContext().fetchClasses()
             adapter = ReferenceAdapter(requireContext(), classes) { charClass ->
                 val activity = requireActivity() as CharacterCreateActivity
                 if (activity.selectedClass != charClass.name){
@@ -48,7 +49,7 @@ class ClassFragment : Fragment() {
             binding.rvReferences.adapter = adapter
         }
 
-    }
+
 
     override fun onResume() {
         super.onResume()

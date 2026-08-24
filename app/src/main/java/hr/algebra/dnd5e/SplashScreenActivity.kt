@@ -4,9 +4,15 @@ package hr.algebra.dnd5e
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import hr.algebra.dnd5e.api.Dnd5eWorker
 import hr.algebra.dnd5e.databinding.ActivitySplashScreenBinding
 import hr.algebra.dnd5e.framework.applyAnimation
 import hr.algebra.dnd5e.framework.callDelayed
+import hr.algebra.dnd5e.framework.getBooleanPreference
+import hr.algebra.dnd5e.framework.isOnline
 import hr.algebra.dnd5e.framework.startActivity
 
 private const val DELAY = 3000L
@@ -31,9 +37,22 @@ class SplashScreenActivity : AppCompatActivity() {
 
     }
     private fun redirect() {
-        callDelayed(DELAY) {
-            startActivity<HostActivity>()
-            finish()
+
+        if(getBooleanPreference(DATA_IMPORTED)) {
+            callDelayed(DELAY) { startActivity<HostActivity>() }
+        } else {
+            if(isOnline()) {
+                WorkManager.getInstance(this).apply {
+                    enqueueUniqueWork(
+                        DATA_IMPORTED,
+                        ExistingWorkPolicy.KEEP,
+                        OneTimeWorkRequest.from(Dnd5eWorker::class.java)
+                    )
+                }
+            } else {
+                binding.tvSplash.text = getString(R.string.no_internet)
+                callDelayed(DELAY) { finish() }
+            }
         }
     }
 

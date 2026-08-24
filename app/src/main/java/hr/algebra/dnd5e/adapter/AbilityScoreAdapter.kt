@@ -92,7 +92,7 @@ class AbilityScoreAdapter(
     }
 
     companion object{
-        const val MIN=8
+        const val MIN=4
         const val MAX=18
     }
 

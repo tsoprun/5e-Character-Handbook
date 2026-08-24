@@ -12,6 +12,7 @@ import hr.algebra.dnd5e.adapter.ReferenceAdapter
 import hr.algebra.dnd5e.api.ApiReference
 import hr.algebra.dnd5e.api.Dnd5eFetcher
 import hr.algebra.dnd5e.databinding.FragmentRaceBinding
+import hr.algebra.dnd5e.framework.fetchRaces
 
 
 class RaceFragment : Fragment() {
@@ -32,7 +33,7 @@ class RaceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvReferences.layoutManager = LinearLayoutManager(requireContext())
 
-        Dnd5eFetcher().fetchRaces { races ->
+            val races = requireContext().fetchRaces()
             adapter = ReferenceAdapter(requireContext(), races) { race ->
                 val activity = requireActivity() as CharacterCreateActivity
                 activity.selectedRace = race.name
@@ -43,7 +44,6 @@ class RaceFragment : Fragment() {
             binding.rvReferences.adapter = adapter
         }
 
-    }
 
     override fun onResume() {
         super.onResume()
