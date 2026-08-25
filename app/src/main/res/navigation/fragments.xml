@@ -27,6 +27,13 @@
         tools:layout="@layout/fragment_about"/>
 
 
+    <fragment
+        android:id="@+id/menuSettings"
+        android:name="hr.algebra.dnd5e.fragment.SettingsFragment"
+        android:label="@string/settings"
+        />
+
+
 
 
 </navigation>

@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10sp"
         android:fontFamily="serif"
-        android:textColor="@color/gold_light"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/_18sp"
         android:textStyle="bold"
         tools:text="Animal Handling" />
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
-        android:textColor="@color/text_muted"
+        android:textColor="?android:attr/textColorSecondary"
         android:textSize="@dimen/_13sp"
         tools:text="(Dex)"/>
     </LinearLayout>
@@ -54,7 +54,7 @@
         android:gravity="end"
         android:layout_marginEnd="65dp"
         android:fontFamily="serif"
-        android:textColor="@color/gold"
+        android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/_20sp"
         android:textStyle="bold"
         tools:text="+15"/>

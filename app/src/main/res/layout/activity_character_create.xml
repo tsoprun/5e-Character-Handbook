@@ -26,7 +26,7 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/surface_dark"
+        android:background="?attr/colorSurface"
         app:itemTextColor="@color/bottom_nav_color"
         app:menu="@menu/character_bottom_nav_create"
         app:labelVisibilityMode="unlabeled"

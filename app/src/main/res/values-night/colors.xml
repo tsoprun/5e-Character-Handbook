@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#14100C</color>
+    <color name="surface_dark">#241C14</color>
+    <color name="gold_light">#E8C86E</color>
+    <color name="text_muted">#B8A98C</color>
+    <color name="bronze_dim">#6E5A38</color>
+</resources>

@@ -1,11 +1,15 @@
 package hr.algebra.dnd5e
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -14,8 +18,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
+import hr.algebra.dnd5e.notification.NotificationHelper
 
+private const val NOTIF_REQ=9001
 class HostActivity : AppCompatActivity() {
+
+
     private lateinit var binding: ActivityHostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +37,33 @@ class HostActivity : AppCompatActivity() {
         applyStatusBarInset()
         initHamburgerMenu()
         initNavigation()
+        ensureNotificationsAndSchedule()
+    }
+
+    private fun ensureNotificationsAndSchedule() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    NOTIF_REQ
+                )
+                return
+            }
+        }
+        NotificationHelper.scheduleIn30seconds(this)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        when(requestCode){NOTIF_REQ -> NotificationHelper.scheduleIn30seconds(this)}
+        }
     }
 
     private fun applyStatusBarInset() {

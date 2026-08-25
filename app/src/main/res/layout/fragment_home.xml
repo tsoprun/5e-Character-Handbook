@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/EntryCard"
-    android:background="@color/bg_dark"
+    android:background="?android:attr/colorBackground"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/_16dp"

@@ -9,15 +9,17 @@
     <color name="black_light">#D8000000</color>
 
     <color name="white">#FFFFFFFF</color>
+    <!-- svijetla tema -->
+    <color name="bg_dark">#EFE6D2</color>
+    <color name="surface_dark">#FBF3E0</color>
+    <color name="gold_light">#3A2E1A</color>
+    <color name="text_muted">#6B5E45</color>
+    <color name="bronze_dim">#C6B48A</color>
 
-    <color name="bg_dark">#14100C</color>
-    <color name="surface_dark">#241C14</color>
+    <!-- fiksne-->
     <color name="parchment">#E8DCC0</color>
     <color name="parchment_dim">#CBBE9C</color>
     <color name="ink">#2B2118</color>
     <color name="gold">#C9A227</color>
-    <color name="gold_light">#E8C86E</color>
     <color name="blood">#7B2D26</color>
-    <color name="text_muted">#B8A98C</color>
-    <color name="bronze_dim">#6E5A38</color>
 </resources>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_dark"
+    android:background="?android:attr/colorBackground"
     tools:context=".fragment.CharactersFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -23,8 +23,8 @@
         android:layout_margin="@dimen/_18dp"
         android:src="@android:drawable/ic_input_add"
         android:contentDescription="@string/new_character"
-        android:backgroundTint="@color/blood"
-        android:tint="@color/gold"
+        android:backgroundTint="?attr/colorSecondary"
+        android:tint="?attr/colorPrimary"
         app:borderWidth="0dp"
 
         />

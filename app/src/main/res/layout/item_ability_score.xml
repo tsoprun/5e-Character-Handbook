@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="serif"
-        android:textColor="@color/gold_light"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/_20sp"
         android:textStyle="bold"
         tools:text="Strength"/>
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:fontFamily="serif"
-        android:textColor="@color/gold"
+        android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/_20sp"
         android:textStyle="bold"
         tools:text="+3"/>
@@ -47,7 +47,7 @@
         android:layout_marginStart="@dimen/_12dp"
         android:gravity="center"
         android:fontFamily="serif"
-        android:textColor="@color/gold_light"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/_20sp"
         android:textStyle="bold"
         tools:text="16"/>

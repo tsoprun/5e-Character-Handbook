@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_dark"
+    android:background="?android:attr/colorBackground"
     android:fillViewport="true">
 
     <LinearLayout
@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:textColor="@color/gold_light"
+                    android:textColor="?attr/colorOnSurface"
                     android:textSize="@dimen/_26sp"
                     android:textStyle="bold"
                     tools:text="Lyonel Soutmight" />
@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:textColor="@color/text_muted"
+                    android:textColor="?android:attr/textColorSecondary"
                     android:textSize="14sp"
                     android:textStyle="italic"
                     tools:text="Human Bard (College of Lore) • Lvl 20" />
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_2dp"
             android:layout_marginTop="@dimen/_12dp"
-            android:background="@color/gold" />
+            android:background="?attr/colorPrimary" />
 
         <!-- ===== HP banner ===== -->
         <LinearLayout
@@ -83,7 +83,7 @@
                 android:fontFamily="serif"
                 android:letterSpacing="0.1"
                 android:text="HIT POINTS"
-                android:textColor="@color/text_muted"
+                android:textColor="?android:attr/textColorSecondary"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="bold"
                 />
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:textColor="@color/gold_light"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="@dimen/_24sp"
                 android:textStyle="bold"
                 tools:text="114 / 114"

@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity"
-    android:background="@color/surface_dark">
+    android:background="?attr/colorSurface">
 
     <ImageView
         android:id="@+id/ivSplash"
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:fontFamily="sans-serif-smallcaps"
-        android:textColor="@color/text_muted"/>
+        android:textColor="?android:attr/textColorSecondary"/>
 
 </LinearLayout>
