@@ -67,7 +67,7 @@ override fun onBindViewHolder(
         }
 
         private fun abilityMod(ability: String):Int{
-            val score = abilityScores.firstOrNull { it.abilty == Ability.valueOf(ability.uppercase()) }
+            val score = abilityScores.firstOrNull { it.ability == Ability.valueOf(ability.uppercase()) }
                 ?.value ?: 10
             return floor((score-10)/2.0).toInt()
         }

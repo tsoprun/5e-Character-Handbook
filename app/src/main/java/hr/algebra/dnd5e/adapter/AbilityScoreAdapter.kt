@@ -49,8 +49,8 @@ class AbilityScoreAdapter(
 
 
     fun bind(score: AbilityScore) {
-        tvName.text = label(score.abilty)
-        ivIcon.setImageResource(iconFor(score.abilty))
+        tvName.text = label(score.ability)
+        ivIcon.setImageResource(iconFor(score.ability))
         render(score)
         btnPlus.setOnClickListener {
             if (score.value < MAX) {

@@ -72,7 +72,8 @@ class CharacterCreateActivity : AppCompatActivity() {
         R.id.menuClass,
         R.id.menuSubclass,
         R.id.menuAbilities,
-        R.id.menuSkillStep)
+        R.id.menuSkillStep,
+        R.id.menuFinish)
 
     private fun initBottomNav(){
         binding.bottomNav.setOnItemSelectedListener {  item ->

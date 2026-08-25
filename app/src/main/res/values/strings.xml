@@ -64,6 +64,13 @@
 
     <string name="no_internet">No internet connection</string>
 
+    <string name="finish">Finish</string>
+
+    <string name="enter_name">Enter a name</string>
+    <string name="create">Create</string>
+    <string name="pick_race_class">Pick a race and class first</string>
+    <string name="character_created">Character created!</string>
+
 
 
 
