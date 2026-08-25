@@ -67,8 +67,8 @@ class AbilityScoreAdapter(
 
     }
         private fun render(score: AbilityScore) {
-            tvValue.text = score.value.toString()
-            val mod = floor((score.value - 10)/ 2.0).toInt()
+            tvValue.text = score.total.toString()
+            val mod = floor((score.total - 10)/ 2.0).toInt()
             tvModifier.text = if (mod >= 0) "+$mod" else "$mod"
         }
         private fun iconFor(abiltiy: Ability) = when (abiltiy) {

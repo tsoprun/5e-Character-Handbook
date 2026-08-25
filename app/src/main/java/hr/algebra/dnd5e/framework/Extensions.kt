@@ -159,6 +159,24 @@ fun Context.fetchSkills(): List<SkillRef>{
 }
 
 
+@SuppressLint("Range")
+fun Context.fetchRaceBonuses(apiIndex: String): String{
+    contentResolver.query(
+        RACES_CONTENT_URI,
+        null,
+        "${RaceRef::apiIndex.name}=?",
+        arrayOf(apiIndex),
+        null
+    ).use { cursor ->
+            if(cursor?.moveToFirst()==true){
+                return cursor.getString(cursor.getColumnIndex(RaceRef::abilityBonuses.name))
+        }
+    }
+    return ""
+}
+
+
+
 fun Character.toContentValues() = ContentValues().apply {
     put(Character::name.name, name)
     put(Character::race.name, race)

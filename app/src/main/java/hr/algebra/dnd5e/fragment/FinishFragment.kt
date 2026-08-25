@@ -46,7 +46,7 @@ class FinishFragment : Fragment() {
         }
 
         fun score(ability: Ability) =
-            activity.abilityScores.first{it.ability==ability}.value
+            activity.abilityScores.first{it.ability==ability}.total
 
         fun mod (value: Int) = floor((value-10)/2.0).toInt()
         val character = Character(

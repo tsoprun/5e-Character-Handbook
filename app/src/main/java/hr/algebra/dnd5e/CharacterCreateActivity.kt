@@ -91,5 +91,18 @@ class CharacterCreateActivity : AppCompatActivity() {
         binding.viewPager2.setCurrentItem(0, false)
         binding.bottomNav.selectedItemId = R.id.menuRace
     }
+
+    fun applyRatialBonuses(raw: String){
+        abilityScores.forEach{it.bonus=0}
+        raw.split(",").forEach{part->
+            val entry = part.trim()
+            if (entry.isEmpty()) return@forEach
+            val(key,amount)=entry.split(":")
+            val ability=Ability.valueOf(key.trim().uppercase())
+            abilityScores.firstOrNull{it.ability==ability}?.bonus=
+                amount.trim().removePrefix("+").toInt()
+        }
+    }
+
 }
 

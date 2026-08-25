@@ -12,6 +12,7 @@ import hr.algebra.dnd5e.adapter.ReferenceAdapter
 import hr.algebra.dnd5e.api.ApiReference
 import hr.algebra.dnd5e.api.Dnd5eFetcher
 import hr.algebra.dnd5e.databinding.FragmentRaceBinding
+import hr.algebra.dnd5e.framework.fetchRaceBonuses
 import hr.algebra.dnd5e.framework.fetchRaces
 
 
@@ -37,6 +38,7 @@ class RaceFragment : Fragment() {
             adapter = ReferenceAdapter(requireContext(), races) { race ->
                 val activity = requireActivity() as CharacterCreateActivity
                 activity.selectedRace = race.name
+                activity.applyRatialBonuses(requireContext().fetchRaceBonuses(race.index))
                 adapter.selectedName = race.name
                 adapter.notifyDataSetChanged()
             }
