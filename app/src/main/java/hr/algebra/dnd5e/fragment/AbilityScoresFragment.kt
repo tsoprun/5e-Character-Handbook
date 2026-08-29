@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import hr.algebra.dnd5e.CharacterCreateActivity
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
 import hr.algebra.dnd5e.adapter.AbilityScoreAdapter
-import hr.algebra.dnd5e.model.Ability
-import hr.algebra.dnd5e.model.AbilityScore
 
 import hr.algebra.dnd5e.databinding.FragmentAbilityScoresBinding
 
@@ -29,7 +27,7 @@ class AbilityScoresFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val activiy = requireActivity() as CharacterCreateActivity
+        val activiy = requireActivity() as CharacterCreatePagerActivity
         binding.rvAbilities.layoutManager =LinearLayoutManager(requireContext())
         binding.rvAbilities.adapter = AbilityScoreAdapter(requireContext(), activiy.abilityScores)
     }

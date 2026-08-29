@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
-import hr.algebra.dnd5e.CharacterCreateActivity
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
 import hr.algebra.dnd5e.DND_PROVIDER_CONTENT_URI
 import hr.algebra.dnd5e.R
 import hr.algebra.dnd5e.databinding.FragmentFinishBinding
@@ -37,7 +37,7 @@ class FinishFragment : Fragment() {
     }
 
     private fun createCharacter() {
-        val activity = requireActivity() as CharacterCreateActivity
+        val activity = requireActivity() as CharacterCreatePagerActivity
 
         val name = binding.etName.text.toString().trim()
         if (name.isEmpty()){
@@ -56,10 +56,10 @@ class FinishFragment : Fragment() {
             activity.selectedClass!!,
             activity.selectedSubclass ?: "",
             1,
-            10 + mod(score(Ability.CON)),
-            10 + mod(score(Ability.CON)),
+             activity.selectedClassHitDie + mod(score(Ability.CON)),
+            activity.selectedClassHitDie  + mod(score(Ability.CON)),
             10 + mod(score(Ability.DEX)),
-            30,
+            activity.selectedRaceSpeed,
             score(Ability.STR),
             score(Ability.DEX),
             score(Ability.CON),

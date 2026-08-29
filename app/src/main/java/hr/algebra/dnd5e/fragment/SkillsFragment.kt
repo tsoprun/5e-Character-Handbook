@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import hr.algebra.dnd5e.CharacterCreateActivity
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
 import hr.algebra.dnd5e.adapter.SkillAdapter
 import hr.algebra.dnd5e.databinding.FragmentSkillsBinding
 import hr.algebra.dnd5e.framework.fetchSkills
@@ -27,7 +27,7 @@ class SkillsFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val activiy = requireActivity() as CharacterCreateActivity
+        val activiy = requireActivity() as CharacterCreatePagerActivity
         binding.rvSkills.layoutManager = LinearLayoutManager(requireContext())
         binding.rvSkills.adapter = SkillAdapter(
             requireContext(),

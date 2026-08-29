@@ -10,8 +10,7 @@ import hr.algebra.dnd5e.adapter.CharacterAdapter
 import hr.algebra.dnd5e.databinding.FragmentCharactersBinding
 import hr.algebra.dnd5e.framework.fetchCharacters
 import hr.algebra.dnd5e.model.Character
-import android.content.ContentValues
-import hr.algebra.dnd5e.CharacterCreateActivity
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
 import hr.algebra.dnd5e.DND_PROVIDER_CONTENT_URI
 import hr.algebra.dnd5e.framework.toContentValues
 import hr.algebra.dnd5e.framework.startActivity
@@ -56,7 +55,7 @@ class CharactersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvCharacters.layoutManager = LinearLayoutManager(requireContext())
         binding.fabAdd.setOnClickListener {
-            requireContext().startActivity<CharacterCreateActivity>()
+            requireContext().startActivity<CharacterCreatePagerActivity>()
             }
     }
 

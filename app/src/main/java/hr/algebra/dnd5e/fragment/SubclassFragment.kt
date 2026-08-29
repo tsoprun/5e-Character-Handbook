@@ -4,15 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import hr.algebra.dnd5e.CharacterCreateActivity
-import hr.algebra.dnd5e.adapter.ReferenceAdapter
-import hr.algebra.dnd5e.api.ApiReference
-import hr.algebra.dnd5e.api.Dnd5eFetcher
-import hr.algebra.dnd5e.databinding.FragmentClassBinding
-import hr.algebra.dnd5e.databinding.FragmentRaceBinding
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
+import hr.algebra.dnd5e.adapter.SubclassAdapter
 import hr.algebra.dnd5e.databinding.FragmentSubclassBinding
 import hr.algebra.dnd5e.framework.fetchSubclasses
 
@@ -20,7 +15,7 @@ import hr.algebra.dnd5e.framework.fetchSubclasses
 class SubclassFragment : Fragment() {
 
     private lateinit var binding: FragmentSubclassBinding
-    private lateinit var adapter: ReferenceAdapter
+    private lateinit var adapter: SubclassAdapter
 
 
     override fun onCreateView(
@@ -39,11 +34,11 @@ class SubclassFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val activity = requireActivity() as CharacterCreateActivity
+        val activity = requireActivity() as CharacterCreatePagerActivity
         val classIndex = activity.selectedClassIndex ?: return // nema klase > nema podklase
 
         val subclasses = requireContext().fetchSubclasses(classIndex)
-        adapter = ReferenceAdapter(requireContext(), subclasses) { subclass ->
+        adapter = SubclassAdapter(requireContext(), subclasses) { subclass ->
             activity.selectedSubclass = subclass.name
             adapter.selectedName = subclass.name
             adapter.notifyDataSetChanged()

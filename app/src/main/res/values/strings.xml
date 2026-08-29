@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DnD5e Companion</string>
+    <string name="app_name">5e Character Handbook</string>
     <string name="loading_quote">Preparing spells for the day… precisely as long as I mean to.</string>
     <string name="about">About Application</string>
     <string name="about_description">5e Tabletop application \n Created by Tin</string>

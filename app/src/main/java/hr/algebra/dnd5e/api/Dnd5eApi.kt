@@ -8,16 +8,16 @@ const val API_URL = "https://www.dnd5eapi.co/api/"
 
 interface Dnd5eApi {
     @GET("races")
-    fun fetchRaces(): Call<ReferenceList>
+    fun fetchRaces(): Call<ApiReferenceList>
 
     @GET("classes")
-    fun fetchClasses(): Call<ReferenceList>
+    fun fetchClasses(): Call<ApiReferenceList>
 
     @GET("skills")
-    fun fetchSkills(): Call<ReferenceList>
+    fun fetchSkills(): Call<ApiReferenceList>
 
     @GET("classes/{index}/subclasses")
-    fun fetchSubclasses(@Path("index") index: String): Call<ReferenceList>
+    fun fetchSubclasses(@Path("index") index: String): Call<ApiReferenceList>
 
     @GET ("races/{index}")
     fun fetchRaceDetail(@Path("index") index: String): Call<RaceDetail>
@@ -26,6 +26,6 @@ interface Dnd5eApi {
     fun fetchClassDetail(@Path("index") index: String): Call<ClassDetail>
 
     @GET ("skills/{index}")
-    fun fetchSkillDetail(@Path("index") index: String): Call<SkillDetail>
+    fun fetchSkillDetail(@Path("index") index: String): Call<ApiSkillDetail>
 
 }

@@ -25,7 +25,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".CharacterCreateActivity"
+            android:name=".CharacterCreatePagerActivity"
             android:exported="false"/>
 
         <activity

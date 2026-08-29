@@ -21,7 +21,6 @@ import hr.algebra.dnd5e.CLASSES_CONTENT_URI
 import hr.algebra.dnd5e.RACES_CONTENT_URI
 import hr.algebra.dnd5e.SKILLS_CONTENT_URI
 import hr.algebra.dnd5e.SUBCLASSES_CONTENT_URI
-import hr.algebra.dnd5e.api.ApiReference
 import hr.algebra.dnd5e.model.ClassRef
 import hr.algebra.dnd5e.model.RaceRef
 import hr.algebra.dnd5e.model.SkillRef
@@ -66,8 +65,8 @@ fun Context.fetchCharacters(): MutableList<Character> {
 }
 
 @SuppressLint("Range")
-fun Context.fetchRaces(): List<ApiReference>{
-    val races = mutableListOf<ApiReference>()
+fun Context.fetchRaces(): List<RaceRef>{
+        val races = mutableListOf<RaceRef>()
     contentResolver.query(
         RACES_CONTENT_URI,
         null,
@@ -77,10 +76,12 @@ fun Context.fetchRaces(): List<ApiReference>{
     ).use { cursor ->
         while (cursor?.moveToNext() == true) {
             races.add(
-                ApiReference(
-                    cursor.getString(cursor.getColumnIndex((RaceRef::apiIndex.name))),
+                RaceRef(
+                    cursor.getLong(cursor.getColumnIndex((RaceRef::_id.name))),
+                    cursor.getString(cursor.getColumnIndex(RaceRef::apiIndex.name)),
                     cursor.getString(cursor.getColumnIndex(RaceRef::name.name)),
-                    ""
+                    cursor.getInt(cursor.getColumnIndex(RaceRef::speed.name)),
+                    cursor.getString(cursor.getColumnIndex(RaceRef::abilityBonuses.name))
                 )
             )
         }
@@ -89,8 +90,8 @@ fun Context.fetchRaces(): List<ApiReference>{
 }
 
 @SuppressLint("Range")
-fun Context.fetchClasses(): List<ApiReference>{
-    val classes = mutableListOf<ApiReference>()
+fun Context.fetchClasses(): List<ClassRef>{
+    val classes = mutableListOf<ClassRef>()
     contentResolver.query(
         CLASSES_CONTENT_URI,
         null,
@@ -100,10 +101,14 @@ fun Context.fetchClasses(): List<ApiReference>{
     ).use { cursor ->
         while (cursor?.moveToNext() == true) {
             classes.add(
-                ApiReference(
+                ClassRef(
+                    cursor.getLong(cursor.getColumnIndex((ClassRef::_id.name))),
                     cursor.getString(cursor.getColumnIndex((ClassRef::apiIndex.name))),
                     cursor.getString(cursor.getColumnIndex(ClassRef::name.name)),
-                    ""
+                    cursor.getInt(cursor.getColumnIndex(ClassRef::hitDie.name)),
+                    cursor.getString(cursor.getColumnIndex(ClassRef::savingThrows.name)),
+                    cursor.getInt(cursor.getColumnIndex(ClassRef::skillChoiceCount.name)),
+                    cursor.getString(cursor.getColumnIndex(ClassRef::skillOptions.name))
                 )
             )
         }
@@ -112,8 +117,8 @@ fun Context.fetchClasses(): List<ApiReference>{
 }
 
 @SuppressLint("Range")
-fun Context.fetchSubclasses(classIndex: String): List<ApiReference>{
-    val subclasses = mutableListOf<ApiReference>()
+fun Context.fetchSubclasses(classIndex: String): List<SubclassRef>{
+    val subclasses = mutableListOf<SubclassRef>()
     contentResolver.query(
         SUBCLASSES_CONTENT_URI,
         null,
@@ -123,10 +128,11 @@ fun Context.fetchSubclasses(classIndex: String): List<ApiReference>{
     ).use { cursor ->
         while (cursor?.moveToNext() == true) {
             subclasses.add(
-                ApiReference(
+                SubclassRef(
+                    cursor.getLong(cursor.getColumnIndex((SubclassRef::_id.name))),
                     cursor.getString(cursor.getColumnIndex((SubclassRef::apiIndex.name))),
                     cursor.getString(cursor.getColumnIndex(SubclassRef::name.name)),
-                    ""
+                    cursor.getString(cursor.getColumnIndex((SubclassRef::classIndex.name))),
                 )
             )
         }
@@ -157,24 +163,6 @@ fun Context.fetchSkills(): List<SkillRef>{
     }
     return skills
 }
-
-
-@SuppressLint("Range")
-fun Context.fetchRaceBonuses(apiIndex: String): String{
-    contentResolver.query(
-        RACES_CONTENT_URI,
-        null,
-        "${RaceRef::apiIndex.name}=?",
-        arrayOf(apiIndex),
-        null
-    ).use { cursor ->
-            if(cursor?.moveToFirst()==true){
-                return cursor.getString(cursor.getColumnIndex(RaceRef::abilityBonuses.name))
-        }
-    }
-    return ""
-}
-
 
 
 fun Character.toContentValues() = ContentValues().apply {

@@ -4,22 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import hr.algebra.dnd5e.CharacterCreateActivity
-import hr.algebra.dnd5e.adapter.ReferenceAdapter
-import hr.algebra.dnd5e.api.ApiReference
-import hr.algebra.dnd5e.api.Dnd5eFetcher
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
+import hr.algebra.dnd5e.adapter.ClassAdapter
 import hr.algebra.dnd5e.databinding.FragmentClassBinding
-import hr.algebra.dnd5e.databinding.FragmentRaceBinding
 import hr.algebra.dnd5e.framework.fetchClasses
 
 
 class ClassFragment : Fragment() {
 
     private lateinit var binding: FragmentClassBinding
-    private lateinit var adapter: ReferenceAdapter
+    private lateinit var adapter: ClassAdapter
 
 
     override fun onCreateView(
@@ -35,17 +31,19 @@ class ClassFragment : Fragment() {
         binding.rvReferences.layoutManager = LinearLayoutManager(requireContext())
 
             val classes = requireContext().fetchClasses()
-            adapter = ReferenceAdapter(requireContext(), classes) { charClass ->
-                val activity = requireActivity() as CharacterCreateActivity
+            adapter = ClassAdapter(requireContext(), classes) { charClass ->
+                val activity = requireActivity() as CharacterCreatePagerActivity
                 if (activity.selectedClass != charClass.name){
                     activity.selectedSubclass = null
                 }
                 activity.selectedClass = charClass.name
-                activity.selectedClassIndex = charClass.index
+                activity.selectedClassIndex = charClass.apiIndex
+                activity.selectedClassHitDie = charClass.hitDie
+
                 adapter.selectedName = charClass.name
                 adapter.notifyDataSetChanged()
             }
-            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedClass
+            adapter.selectedName = (requireActivity() as CharacterCreatePagerActivity).selectedClass
             binding.rvReferences.adapter = adapter
         }
 
@@ -54,7 +52,7 @@ class ClassFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (::adapter.isInitialized) {
-            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedClass
+            adapter.selectedName = (requireActivity() as CharacterCreatePagerActivity).selectedClass
             adapter.notifyDataSetChanged()
         }
     }

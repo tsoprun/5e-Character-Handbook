@@ -7,11 +7,10 @@ import hr.algebra.dnd5e.fragment.AbilityScoresFragment
 import hr.algebra.dnd5e.fragment.ClassFragment
 import hr.algebra.dnd5e.fragment.FinishFragment
 import hr.algebra.dnd5e.fragment.RaceFragment
-import hr.algebra.dnd5e.fragment.SectionPlaceholderFragment
 import hr.algebra.dnd5e.fragment.SkillsFragment
 import hr.algebra.dnd5e.fragment.SubclassFragment
 
-class CharacterCreateAdapter(activity: FragmentActivity, private val position: Int): FragmentStateAdapter(activity) {
+class CharacterCreatePagerAdapter(activity: FragmentActivity, private val position: Int): FragmentStateAdapter(activity) {
 
     override fun getItemCount() = 6
 

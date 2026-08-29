@@ -7,22 +7,25 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.viewpager2.widget.ViewPager2
-import hr.algebra.dnd5e.adapter.CharacterCreateAdapter
-import hr.algebra.dnd5e.adapter.CharacterPagerAdapter
-import hr.algebra.dnd5e.databinding.ActivityCharacterCreateBinding
-import hr.algebra.dnd5e.databinding.ActivityCharacterPagerBinding
-import hr.algebra.dnd5e.framework.fetchCharacters
+import hr.algebra.dnd5e.adapter.CharacterCreatePagerAdapter
+import hr.algebra.dnd5e.databinding.ActivityCharacterCreatePagerBinding
 import hr.algebra.dnd5e.model.Ability
 import hr.algebra.dnd5e.model.AbilityScore
 
 
-class CharacterCreateActivity : AppCompatActivity() {
+class CharacterCreatePagerActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCharacterCreateBinding
+
+    private lateinit var binding: ActivityCharacterCreatePagerBinding
+
+
 
     var selectedRace: String?=null
+
+    var selectedRaceSpeed: Int = 0
     var selectedClass: String?=null
 
+    var selectedClassHitDie: Int =0
     var selectedClassIndex: String?=null
     var selectedSubclass: String?=null
 
@@ -33,7 +36,7 @@ class CharacterCreateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCharacterCreateBinding.inflate(layoutInflater)
+        binding = ActivityCharacterCreatePagerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
         initPager()
@@ -58,7 +61,7 @@ class CharacterCreateActivity : AppCompatActivity() {
     }
 
     private fun initPager() {
-        binding.viewPager2.adapter = CharacterCreateAdapter(this, position)
+        binding.viewPager2.adapter = CharacterCreatePagerAdapter(this, position)
     }
 
     override fun onSupportNavigateUp(): Boolean {

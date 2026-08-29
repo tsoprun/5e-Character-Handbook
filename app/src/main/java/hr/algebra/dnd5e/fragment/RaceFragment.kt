@@ -4,24 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import hr.algebra.dnd5e.CharacterCreateActivity
-import hr.algebra.dnd5e.adapter.ReferenceAdapter
-import hr.algebra.dnd5e.api.ApiReference
-import hr.algebra.dnd5e.api.Dnd5eFetcher
+import hr.algebra.dnd5e.CharacterCreatePagerActivity
+import hr.algebra.dnd5e.adapter.RaceAdapter
 import hr.algebra.dnd5e.databinding.FragmentRaceBinding
-import hr.algebra.dnd5e.framework.fetchRaceBonuses
 import hr.algebra.dnd5e.framework.fetchRaces
 
 
 class RaceFragment : Fragment() {
 
     private lateinit var binding: FragmentRaceBinding
-    private lateinit var adapter: ReferenceAdapter
+    private lateinit var adapter: RaceAdapter
 
-
+    // inicijalizACIJSKA
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,14 +31,15 @@ class RaceFragment : Fragment() {
         binding.rvReferences.layoutManager = LinearLayoutManager(requireContext())
 
             val races = requireContext().fetchRaces()
-            adapter = ReferenceAdapter(requireContext(), races) { race ->
-                val activity = requireActivity() as CharacterCreateActivity
+            adapter = RaceAdapter(requireContext(), races) { race ->
+                val activity = requireActivity() as CharacterCreatePagerActivity
                 activity.selectedRace = race.name
-                activity.applyRatialBonuses(requireContext().fetchRaceBonuses(race.index))
+                activity.selectedRaceSpeed=race.speed
+                activity.applyRatialBonuses(race.abilityBonuses)
                 adapter.selectedName = race.name
                 adapter.notifyDataSetChanged()
             }
-            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedRace
+            adapter.selectedName = (requireActivity() as CharacterCreatePagerActivity).selectedRace
             binding.rvReferences.adapter = adapter
         }
 
@@ -50,7 +47,7 @@ class RaceFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (::adapter.isInitialized) {
-            adapter.selectedName = (requireActivity() as CharacterCreateActivity).selectedRace
+            adapter.selectedName = (requireActivity() as CharacterCreatePagerActivity).selectedRace
             adapter.notifyDataSetChanged()
         }
     }
