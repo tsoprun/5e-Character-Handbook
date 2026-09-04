@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="home">Početna</string>
+    <string name="about">O aplikaciji</string>
+    <string name="settings">Postavke</string>
+    
+    <string name="theme">Tema</string>
+    <string name="theme_summary">Svijetla / Tamna / Sustav</string>
+    <string name="theme_system">Sustav</string>
+    <string name="theme_light">Svijetla</string>
+    <string name="theme_dark">Tamna</string>
+    <string name="language">Jezik</string>
+    <string name="language_summary">Jezik aplikacije</string>
+
+    <string name="exit">Izlaz</string>
+    <string name="do_you_really_want_to_exit_an_app">Želite li stvarno izaći iz aplikacije?</string>
+    <string name="cancel">Odustani</string>
+
+
+    <string name="loading_quote">Pripremam magiju za današnji dan… točno onoliko dugo koliko namjeravam.</string>
+    <string name="about_description">5e aplikacija za Tabletop igre \n Izradio Tin</string>
+    <string name="no_internet">Nema internetske veze</string>
+    <string name="coming_soon">Uskoro dolazi</string>
+
+
+
+</resources>
