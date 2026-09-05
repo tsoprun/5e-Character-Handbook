@@ -52,7 +52,7 @@ object NotificationHelper {
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(context.getString(R.string.app_name))
-            .setContentText("Your adventure awaits \\u2014 tap to open.")
+            .setContentText("Your adventure awaits... tap to open.")
             .setContentIntent(pendingOpen)
             .setAutoCancel(true)
             .build()
